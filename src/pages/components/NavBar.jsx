@@ -91,7 +91,7 @@ export const Navbar = () => {
 								<a
 									rel="noreferrer noopener"
 									href={route.href}
-									className={`text-[16px] text-white px-4 py-2 rounded hover:scale-110 transition-all duration-200 font-semibold}`}
+									className={`text-[16px] px-4 py-2 rounded hover:scale-110 transition-all duration-200 font-semibold ${pathname == '/' ? "text-white" : "text-black" }`}
 								>
 									{route.label}
 								</a>
