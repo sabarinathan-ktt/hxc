@@ -36,8 +36,7 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     setIsSubmitting(false);
     setSubmitMessage(
-      `Hello ${
-        formData.firstName[0].toUpperCase() + formData.firstName.slice(1)
+      `Hello ${formData.firstName[0].toUpperCase() + formData.firstName.slice(1)
       }, thank you for your message. We'll get back to you soon!`
     );
     setFormData({
@@ -49,12 +48,10 @@ const Contact = () => {
     });
   };
 
-  const officeLocation = "https://maps.google.com/maps?q=19.1311,72.8322&hl=es;z=14&output=embed"; // Static Google Map URL
-
   return (
-    <div className="bg-background min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-center text-foreground mb-12">
+    <div className="bg-background min-h-screen">
+      <div className="container mx-auto px-4 py-16">
+        <h1 className="text-4xl font-bold text-center text-foreground mb-12 mt-4">
           Contact Us
         </h1>
 
@@ -62,13 +59,18 @@ const Contact = () => {
           {/* Left Side - Form */}
           <Card className="w-full lg:w-1/2">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold">Send Us a Message</CardTitle>
+              <CardTitle className="text-2xl font-bold">
+                Send Us a Message
+              </CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="firstName" className="text-sm font-medium text-foreground">
+                    <label
+                      htmlFor="firstName"
+                      className="text-sm font-medium text-foreground"
+                    >
                       First Name
                     </label>
                     <Input
@@ -82,7 +84,10 @@ const Contact = () => {
                     />
                   </div>
                   <div>
-                    <label htmlFor="lastName" className="text-sm font-medium text-foreground">
+                    <label
+                      htmlFor="lastName"
+                      className="text-sm font-medium text-foreground"
+                    >
                       Last Name
                     </label>
                     <Input
@@ -97,7 +102,10 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
-                  <label htmlFor="companyName" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="companyName"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Company Name
                   </label>
                   <Input
@@ -111,7 +119,10 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="email"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Email Address
                   </label>
                   <Input
@@ -125,7 +136,10 @@ const Contact = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-medium text-foreground"
+                  >
                     Message
                   </label>
                   <Textarea
@@ -170,7 +184,9 @@ const Contact = () => {
           {/* Right Side - Contact Info and Map */}
           <Card className="w-full lg:w-1/2">
             <CardHeader>
-              <CardTitle className="text-2xl font-bold">Our Information</CardTitle>
+              <CardTitle className="text-2xl font-bold">
+                Our Information
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="flex items-start gap-4">
@@ -179,11 +195,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <p className="text-foreground">
-                    HarbourXChange Private Limited
+                    HarbourXchange
                     <br />
-                    Ground Floor, Wajeda House, Gulmohar Cross Road No. 7,
-                    <br />
-                    Juhu Scheme, Mumbai, Maharashtra - 400049
+                    B 161 , 3rd Floor, Metropolitan Co-Operative Housing Society Limited, Tangra, Kolkata, West Bengal 700105
                   </p>
                 </div>
               </div>
@@ -198,25 +212,26 @@ const Contact = () => {
                   <Link className="w-5 h-5 text-foreground" />
                 </div>
                 <a
-                  href="https://www.harbourxchange.in"
+                  href="https://hxc.netlify.app"
                   className="text-foreground hover:underline"
                 >
-                  https://www.harbourxchange.in
+                  https://hxc.netlify.app
                 </a>
               </div>
             </CardContent>
 
             <CardFooter className="flex-col items-start gap-6">
-              <h2 className="text-2xl font-bold text-foreground">Our Location</h2>
+              <h2 className="text-2xl font-bold text-foreground">
+                Our Location
+              </h2>
               <div className="h-[300px] w-full rounded-lg overflow-hidden border">
-                <iframe
-                  src={officeLocation}
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3684.6914056155547!2d88.40419639999999!3d22.553229899999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a027567549e6401%3A0x906c803e81d8e44c!2sRiverine%20Infra%20Logistics!5e0!3m2!1sen!2sin!4v1742471663202!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
-                  allowFullScreen=""
+                  allowfullscreen=""
                   loading="lazy"
-                ></iframe>
+                  referrerPolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </CardFooter>
           </Card>
