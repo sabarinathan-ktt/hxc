@@ -2,14 +2,14 @@ import { NavLink } from "react-router-dom"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Ship, Building, Package, ArrowRight, Globe, ThumbsUp } from "lucide-react"
+import { Ship, Building, Package, ArrowRight, Globe, ThumbsUp, Settings } from "lucide-react"
 
 const Services = () => {
   return (
-    <div className="min-h-screen bg-background py-16 pt-32">
+    <div className="min-h-screen bg-background py-16">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-12 text-center">Our Services</h1>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-12 mt-8 text-center">Our Services</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           <ServiceCard
             title="Vessel Management"
             description="Optimize your fleet performance with real-time monitoring and advanced management systems."
@@ -21,6 +21,12 @@ const Services = () => {
             description="Connect with maritime projects and services through our competitive bidding platform."
             icon={<Building className="w-8 h-8" />}
             // link="/market"
+          />
+          <ServiceCard
+            title="Service Providers"
+            description="Offering maritime services: agency support, crew management, bunker supply, provisions, insurance, and shipyard maintenance for smooth operations."
+            icon={<Settings className="w-8 h-8" />}
+            // link="/cargo"
           />
           <ServiceCard
             title="Cargo Movement"

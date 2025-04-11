@@ -10,17 +10,17 @@ import VesselManagement from "./pages/Vessel"
 function App() {
 	return (
 		<>
-		<Router>
-		<Navbar />
-			<Routes>
-				<Route path="/" element={<Home />} />
-				<Route path="/about" element={<About />} />
-				<Route path="/contact" element={<Contact />} />
-				<Route path="/services" element={<Services />} />
-				<Route path="/vessel" element={<VesselManagement />} />
-			</Routes>
-		</Router>
-		<Footer />
+			<Router>
+				<Navbar />
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/about" element={<About />} />
+					<Route path="/contact" element={<Contact />} />
+					<Route path="/services" element={<Services />} />
+					<Route path="/vessel" element={<VesselManagement />} />
+				</Routes>
+				<Footer />
+			</Router>
 		</>
 	)
 }

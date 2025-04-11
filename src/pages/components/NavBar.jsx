@@ -1,17 +1,10 @@
-import { useState } from "react";
-import {
-	Sheet,
-	SheetContent,
-	SheetHeader,
-	SheetTitle,
-	SheetTrigger,
-} from "@/components/ui/sheet";
+import { useEffect, useMemo, useState } from "react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { Menu } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 import Login from "./LoginButton";
-import { useLocation } from "react-router-dom";
-
+import { Link, useLocation } from "react-router-dom";
 
 const routeList = Object.freeze([
 	{
@@ -29,49 +22,60 @@ const routeList = Object.freeze([
 ])
 
 export const Navbar = () => {
-
 	const [isOpen, setIsOpen] = useState(false);
+	const [lastScrollY, setLastScrollY] = useState(() => window.scrollY);
 	const { pathname } = useLocation();
 
-	return (
-			<header className={`absolute top-0 right-0 left-0 mx-auto z-10 w-full h-18 ${pathname === '/' ? 'bg-white/20' : 'bg-gray-300'}`}>			<NavigationMenu>
-				<NavigationMenuList className="container h-14 px-4 w-screen flex justify-between">
-					<NavigationMenuItem className="font-bold flex bg-inherit">
-						<a rel="noreferrer noopener" href="/" className="flex">
-							<img src="/logo.png" alt="logo" width={200} height={100} className="hover:scale-110 transition-all duration-300" />
-						</a>
-					</NavigationMenuItem>
+	useEffect(() => {
+		function updateScrollY() {
+			setLastScrollY(window.scrollY)
+		}
+		window.addEventListener('scroll', updateScrollY);
+		return () => { window.removeEventListener('scroll', updateScrollY) }
+	}, []);
 
+	const navbarClass = useMemo(() => {
+		return (pathname === '/' && lastScrollY <= 130) ? 'bg-transparent' : 'bg-gray-800';
+	}, [pathname, lastScrollY]);
+
+	return (
+		<header className={`fixed top-0 right-0 left-0 mx-auto z-10 w-full ${navbarClass}`}>
+			<NavigationMenu>
+				<NavigationMenuList className="h-20 flex w-screen justify-between px-8">
+					<NavigationMenuItem className="font-bold flex bg-inherit">
+						<Link to="/" className="flex bg-white">
+							<img src="/logo.png" alt="logo" width={100} height={100} className="hover:scale-110 transition-all duration-300" />
+						</Link>
+					</NavigationMenuItem>
+					{/* Mobileview sidebar */}
 					<span className="flex md:hidden">
 						<Sheet open={isOpen} onOpenChange={setIsOpen}>
 							<SheetTrigger className="px-2">
-								<Menu className="flex md:hidden h-5 w-5 hover:scale-110 transition-all duration-300" onClick={() => setIsOpen(true)}>
+								<Menu className="flex md:hidden h-5 w-5 hover:scale-110 transition-all duration-300 text-white" onClick={() => setIsOpen(true)}>
 									<span className="sr-only">Menu Icon</span>
 								</Menu>
 							</SheetTrigger>
-
 							<SheetContent side={"left"}>
 								<SheetHeader>
 									<SheetTitle className="flex justify-center items-center h-14">
-										<a rel="noreferrer noopener" href="/">
+										<Link rel="noreferrer noopener" to="/">
 											<img src="/logo.png" alt="logo" className="scale-50" />
-										</a>
+										</Link>
 									</SheetTitle>
 								</SheetHeader>
-
 								<nav className="flex flex-col justify-center items-center gap-2 mt-4">
 									{routeList.map(({ href, label }) => (
-										<a
+										<Link
 											rel="noreferrer noopener"
 											key={label}
-											href={href}
+											to={href}
 											onClick={() => setIsOpen(false)}
 											className={buttonVariants({ variant: "ghost" })}
 										>
 											{label}
-										</a>
+										</Link>
 									))}
-									{/* <a
+									{/* <Link
 										rel="noreferrer noopener"
 										href="/login"
 										className={`w-[110px] border ${buttonVariants({
@@ -79,22 +83,21 @@ export const Navbar = () => {
 										})}`}
 									>
 										Login
-									</a> */}
+									</Link> */}
 								</nav>
 							</SheetContent>
 						</Sheet>
 					</span>
-
+					{/* Desktop view */}
 					<nav className="hidden md:flex gap-2">
 						{routeList.map((route, i) => (
 							<div key={i} className="flex flex-col items-center">
-								<a
-									rel="noreferrer noopener"
-									href={route.href}
-									className={`text-[16px] px-4 py-2 rounded hover:scale-110 transition-all duration-200 font-semibold ${pathname == '/' ? "text-white" : "text-black" }`}
+								<Link
+									to={route.href}
+									className='text-[18px] px-4 py-2 rounded hover:scale-110 transition-all duration-200 text-white'
 								>
 									{route.label}
-								</a>
+								</Link>
 							</div>
 						))}
 						{/* <Login /> */}
