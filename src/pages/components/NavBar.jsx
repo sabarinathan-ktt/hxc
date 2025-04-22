@@ -39,7 +39,7 @@ export const Navbar = () => {
 	}, [pathname, lastScrollY]);
 
 	return (
-		<header className={`fixed top-0 right-0 left-0 mx-auto z-10 w-full ${navbarClass}`}>
+		<header id='navHeader' className={`fixed top-0 right-0 left-0 mx-auto z-10 w-full ${navbarClass}`}>
 			<NavigationMenu>
 				<NavigationMenuList className="h-20 flex w-screen justify-between px-8">
 					<NavigationMenuItem className="font-bold flex bg-inherit">

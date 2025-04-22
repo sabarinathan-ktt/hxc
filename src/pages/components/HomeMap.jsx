@@ -8,8 +8,9 @@ function HomeMap() {
 	const [scrollButtonVisible, setScrollButtonVisible] = useState(true);
 
 	const handleScrollDown = () => {
+		const navHeader = document.getElementById('navHeader');
 		window.scrollTo({
-			top: window.innerHeight,
+			top: navHeader?.clientHeight ? window.innerHeight - navHeader?.clientHeight : window.innerHeight,
 			behavior: 'smooth',
 		});
 	};

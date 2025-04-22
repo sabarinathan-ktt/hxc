@@ -60,7 +60,7 @@ const keyFeatures = [
 ];
 
 const sortIntro = {
-	mainContent: 'HarbourXchange is transforming the global marine marketplace by seamlessly connecting Charterers with Vessel Owners, matching marine assets with project requirements. Our proprietary maritime network intelligence empowers stakeholders with data-driven insights for informed decision-making, thereby enhancing the operational efficiency and supporting maritime decarbonisation of marine assets across diverse project types.',
+	mainContent: 'HarbourXchange is transforming the global marine marketplace by seamlessly connecting Charterers with Vessel Owners, matching marine assets with project requirements. Our proprietary maritime network intelligence empowers stakeholders with data-driven insights for informed decision-making, thereby enhancing the operational efficiency and supporting maritime decarbonisation of marine assets across diverse project types. Through HarbourXchange Vessel owners and managers gain access to real-time data and actionable insights, enabling them to monitor fleet performance, optimise asset utilisation and maintenance, geolocation of service providers and make informed operational and strategic decisions with greater efficiency and confidence.',
 	additionalContent: 'Through HarbourXchange Vessel owners and managers gain access to real-time data and actionable insights, enabling them to monitor fleet performance, optimise asset utilisation and maintenance, geolocation of service providers and make informed operational and strategic decisions with greater efficiency and confidence.'
 }
 
@@ -80,15 +80,14 @@ export default function Home() {
 	return (
 		<main className="flex flex-col min-h-screen">
 			<HomeMap />
-			<section className="py-16 px-4 md:px-8 lg:px-16">
+			<section className="pt-16 pb-4 px-4 md:px-8 lg:px-16">
 				<div className="mx-auto text-center">
-					<h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#4F3890] ">
-						<span>Revolutionizing</span> the Indian Marine Marketplace
+					<h2 className="text-3xl md:text-4xl font-bold mb-6 text-[#4F3890]">
+						<span>Revolutionizing</span> the Global Marine Marketplace
 					</h2>
 					<div className="text-lg md:text-xl">
-						<p>{sortIntro?.mainContent}</p>
-						<br />
-						<p>{sortIntro?.additionalContent}</p>
+						<p className="text-justify">{sortIntro?.mainContent}</p>
+						{/* <p className="text-justify">{sortIntro?.additionalContent}</p> */}
 					</div>
 				</div>
 			</section>

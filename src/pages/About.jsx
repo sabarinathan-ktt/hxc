@@ -54,11 +54,11 @@ const MapSection = () => {
 export default function About() {
 	const navigate = useNavigate();
 	return (
-		<main className="flex flex-col min-h-screen">
+		<main className="flex flex-col min-h-screen mt-20">
 			{/* Hero Section */}
-			<section className="py-8 px-4">
-				<div className="max-w-6xl mx-auto text-center">
-					<h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground mt-16">
+			<section>
+				<div className="max-w-6xl mx-auto my-8 text-center">
+					<h1 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
 						About HarbourXchange
 					</h1>
 					<p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -97,13 +97,13 @@ export default function About() {
 					</h2>
 					<Card className="p-6">
 						<CardContent>
-							<p className="text-lg text-muted-foreground mb-4">
+							<p className="text-lg text-muted-foreground mb-4 text-justify">
 								The marine industry operates as a semi-organized sector, characterized by diverse asset classes and a
 								wide range of operators, from individual owners to large enterprises. Traditionally, connections have
 								relied on intermediaries, leading to a lack of visibility regarding asset locations and pertinent
 								information, which hampers timely decision-making for project stakeholders.
 							</p>
-							<p className="text-lg text-muted-foreground">
+							<p className="text-lg text-muted-foreground text-justify">
 								Real-time monitoring has often depended on crew availability, limiting access to critical operational
 								data.
 							</p>
